@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .button {
+          padding: 12px 24px;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: white;
+          background: #8f68ff;
+          border: 2px solid transparent;
+          border-radius: 8px;
+          cursor: pointer;
+          position: relative;
+          z-index: 1;
+          overflow: hidden;
+          transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Gradient background layer */
+        .button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            #fc72ff,
+            #8f68ff,
+            #487bff,
+            #8f68ff,
+            #fc72ff
+          );
+          background-size: 200%;
+          z-index: -1;
+          transition: opacity 0.3s ease;
+          opacity: 0;
+        }
+        
+        /* Animate on hover */
+        .button:hover::before {
+          animation: animate-gradient 2.5s linear infinite;
+          opacity: 1;
+        }
+        
+        /* Neon border glow on hover */
+        .button:hover {
+          border-color: #fc72ff;
+          box-shadow: 0 0 10px #fc72ff, 0 0 20px #8f68ff, 0 0 30px #487bff;
+        }
+        
+        @keyframes animate-gradient {
+          to {
+            background-position: 200% center;
+          }
+        }
+        </style>
+        
+        <button class="button">Hover Me</button>
+        
+</body>
+</html>
