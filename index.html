@@ -1,66 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Gradient Button</title>
-  <style>
-    /* Centering the button */
-    body {
-      margin: 0;
-      height: 100vh;
-      background-color: #0d0d0d;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .button {
-      padding: 14px 32px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      cursor: pointer;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      background: linear-gradient(to right, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff);
-      background-size: 200%;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Initial static gradient background */
-    .button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      background: inherit;
-      background-size: 200%;
-      z-index: -1;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-    }
-
-    /* On hover - start animating the background and show neon border glow */
-    .button:hover {
-      box-shadow: 0 0 10px #fc72ff, 0 0 20px #8f68ff, 0 0 30px #487bff;
-      border-color: #fc72ff;
-      animation: animate-gradient 2.5s linear infinite;
-    }
-
-    @keyframes animate-gradient {
-      to {
-        background-position: 200% center;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smooth Animated Gradient Button</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        font-family: system-ui, sans-serif;
       }
-    }
-  </style>
-</head>
-<body>
-  <button class="button">Hover Me</button>
-</body>
+
+      .button {
+        padding: 0.75rem 2rem;
+        border-radius: 9999px;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: white;
+        border: 2px solid transparent;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        background: linear-gradient(115.11deg, #9f3ce3 39.41%, #4a0c75 125.55%);
+        background-size: 200% auto;
+        background-position: 0% center;
+        transition:
+          background-position 0.8s ease,
+          box-shadow 0.4s ease,
+          border-color 0.4s ease,
+          transform 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        will-change: background-position, box-shadow, border-color;
+      }
+
+      .button:hover {
+        background-position: 100% center;
+        transform: translateY(-2px);
+      }
+
+      .button.first:hover {
+        box-shadow:
+          0 4px 12px rgba(252, 114, 255, 0.6),
+          0 6px 24px rgba(143, 104, 255, 0.4),
+          0 8px 32px rgba(72, 123, 255, 0.2);
+        border-color: #fc72ff;
+      }
+
+      .lucide {
+        transition: transform 0.3s ease;
+      }
+
+      .button:hover .lucide {
+        transform: translate(3px, -3px);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button first">
+      Get in Touch
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-move-up-right"
+      >
+        <path d="M13 5H19V11"></path>
+        <path d="M19 5L5 19"></path>
+      </svg>
+    </button>
+
+    <button class="button second">
+      Contact Us
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-move-up-right"
+      >
+        <path d="M13 5H19V11"></path>
+        <path d="M19 5L5 19"></path>
+      </svg>
+    </button>
+  </body>
 </html>
